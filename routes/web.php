@@ -16,7 +16,7 @@ Route::view('transactions', 'dashboard')->name('transactions');
 Route::view('tags', 'dashboard')->name('tags');
 Route::view('statistics', 'dashboard')->name('statistics');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 });
 
