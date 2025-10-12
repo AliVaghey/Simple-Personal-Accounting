@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tag extends Model
 {
@@ -12,4 +13,9 @@ class Tag extends Model
         'usage_percentage',
         'transactions_count',
     ];
+
+    public function transTags(): HasMany
+    {
+        return $this->hasMany(TransTag::class, 'tag_id');
+    }
 }
