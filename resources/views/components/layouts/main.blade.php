@@ -32,8 +32,12 @@
             </x-navagation.link>
 
 {{--            Livewire add transaction component            --}}
-            <button class="rounded-full bg-white text-black w-16 h-16 text-6xl pb-16">
-                +
+            <button class="rounded-full bg-white text-black w-16 h-16 text-6xl flex justify-center items-center">
+                <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31.5 17L1.5 17" stroke="black" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M16.5 32L16.5 2" stroke="black" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+
             </button>
 
             <x-navagation.link href="{{ route('tags') }}" :name="'تگ ها'">
