@@ -18,7 +18,7 @@ class TagFactory extends Factory
     {
         $faker = fake('fa_IR');
         return [
-            'name' => $faker->word(),
+            'name' => fake('fa_IR')->name(),
             'color' => $faker->hexColor(),
         ];
     }

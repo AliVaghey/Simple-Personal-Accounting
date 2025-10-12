@@ -17,7 +17,9 @@ class transactionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'is_expense' => $this->faker->boolean(),
+            'amount' => rand(1000, 999999999),
+            'description' => fake('fa_IR')->realText()
         ];
     }
 }
