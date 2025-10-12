@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->boolean('is_expense');
             $table->decimal('amount', 10, 0);
             $table->string('description')->nullable();

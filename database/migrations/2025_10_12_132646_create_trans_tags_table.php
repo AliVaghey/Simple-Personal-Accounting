@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('trans_tags', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('transaction_id')->constrained('transactions');
             $table->foreignId('tag_id')->constrained('tags');
             $table->timestamps();

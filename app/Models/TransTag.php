@@ -8,9 +8,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TransTag extends Model
 {
     protected $fillable = [
+        'user_id',
         'transaction_id',
         'tag_id',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function tag(): BelongsTo
     {
