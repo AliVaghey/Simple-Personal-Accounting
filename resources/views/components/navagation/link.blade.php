@@ -1,10 +1,10 @@
 @props(['name'])
 
 <a
-    class=""
+    class="flex flex-col justify-center items-center"
     wire:navigate
     {{ $attributes }}
 >
     <div>{{ $slot }}</div>
-    <div>{{ $name }}</div>
+    <div class="text-white">{{ $name }}</div>
 </a>
