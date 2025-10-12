@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
+use App\Models\Transaction;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,8 +15,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $user = User::factory()->create([
+            'name' => 'test',
+            'email' => 'test@test.com'
+        ]);
 
+        Tag::factory()
+            ->count(20)
+            ->create([
+                'user_id' => $user->id,
+            ]);
 
+        Transaction::factory()
+            ->count(200)
+            ->create([
+                'user_id' => $user->id,
+            ]);
     }
 }
