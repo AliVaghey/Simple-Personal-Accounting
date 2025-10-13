@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,12 @@ class TagFactory extends Factory
     public function definition(): array
     {
         $faker = fake('fa_IR');
+        $name = $faker->colorName();
+        while (Tag::where('name', $name)->exists()) {
+            $name = $faker->colorName();
+        }
         return [
-            'name' => fake('fa_IR')->name(),
+            'name' => $name,
             'color' => $faker->hexColor(),
         ];
     }

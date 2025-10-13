@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('color');
             $table->tinyInteger('usage_percentage')->default(0);
             $table->integer('transactions_count', false, true)->default(0);
