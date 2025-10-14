@@ -12,9 +12,4 @@ class TagList extends Component
     {
         return auth()->user()->tags()->get();
     }
-
-    public function render()
-    {
-        return view('livewire.tag-list');
-    }
 }

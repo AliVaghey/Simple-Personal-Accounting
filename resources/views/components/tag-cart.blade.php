@@ -1,5 +1,5 @@
 @php($c = $tag->color)
-<div class="w-11/12 mx-auto h-24 rounded-xl flex flex-col justify-around items-center border" style="border-color: {{ $c }}; background-color: {{ $c . '10' }};">
+<div {{ $attributes }} class="w-11/12 mx-auto h-24 rounded-xl flex flex-col justify-around items-center border" style="border-color: {{ $c }}; background-color: {{ $c . '10' }};">
     <div class="w-11/12 mx-auto flex justify-between items-center">
         <p class="text-2xl" style="color: {{ $c }}">{{ $tag->name }}</p>
         <div class="cursor-pointer">
