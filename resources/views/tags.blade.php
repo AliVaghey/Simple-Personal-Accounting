@@ -22,7 +22,7 @@
             <p class="absolute left-1/2 -translate-x-1/2 text-2xl text-white">تگ‌ها</p>
         </div>
 
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 mb-32">
             @foreach($tags as $tag)
                 <x-tag-cart  :$tag />
             @endforeach
