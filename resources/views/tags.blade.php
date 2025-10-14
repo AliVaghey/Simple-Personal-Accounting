@@ -1,6 +1,6 @@
 <x-layouts.main>
 
-    <div x-data="{modal: false}">
+    <div x-data="{modal: false, editModal: false}">
         <div class="flex flex-col gap-11">
             <div class="w-11/12 mx-auto pt-4 relative flex items-center">
                 <div class="border cursor-pointer border-white size-9 flex justify-center items-center rounded-xl">
@@ -37,6 +37,29 @@
                 <div @click.stop="" class="w-sm border-white bg-white/25 backdrop-blur-3xl rounded-xl flex flex-col gap-4 py-4 border ">
 
                     <h1 class="text-white text-center text-2xl">افزودن تگ</h1>
+
+                    <livewire:create-tag />
+
+                </div>
+            </div>
+        </div>
+
+        <div
+            x-show="editModal"
+            x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            id="add-tag-dialog"
+            class="fixed inset-0 flex backdrop-blur-md justify-center items-center"
+            @click="editModal = false"
+        >
+            <div class="flex justify-center items-center w-full h-full">
+                <div @click.stop="" class="w-sm border-white bg-white/25 backdrop-blur-3xl rounded-xl flex flex-col gap-4 py-4 border ">
+
+                    <h1 class="text-white text-center text-2xl">ویرایش تگ</h1>
 
                     <livewire:create-tag />
 
