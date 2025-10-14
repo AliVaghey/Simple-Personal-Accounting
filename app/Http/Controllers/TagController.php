@@ -10,7 +10,7 @@ class TagController extends Controller
     {
         $user = auth()->user();
         return view('tags', [
-            'tags' => $user->tags
+            'tags' => $user->tags()->orderByDesc('usage_percentage')->get()
         ]);
     }
 }
