@@ -4,7 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Accounting</title>
 
+    @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireScripts
 </head>
 <body dir="rtl" class="relative m-0 p-0">
 
