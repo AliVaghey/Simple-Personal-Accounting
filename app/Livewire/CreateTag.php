@@ -19,7 +19,8 @@ class CreateTag extends Component
         $this->validate();
         $user = auth()->user();
         $tag = $user->tags()->create($this->only(['name', 'color']));
-
+        $this->dispatch('tag-created');
+        $this->js('modal = false');
     }
 
     public function render()

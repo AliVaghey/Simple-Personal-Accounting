@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::view('transactions', 'transactions')->name('transactions');
-    Route::get('tags', [TagController::class, 'index'])->name('tags');
+    Route::view('tags', 'tags')->name('tags');
     Route::view('statistics', 'statistics')->name('statistics');
 
 });
