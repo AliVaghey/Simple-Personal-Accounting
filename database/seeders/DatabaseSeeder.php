@@ -43,7 +43,10 @@ class DatabaseSeeder extends Seeder
 
         $total_transactions = $user->transactions()->count();
         foreach ($tags as $tag) {
-            $total_transTags = TransTag::where('tag_id', $tag->id)->where('user_id', $user->id)->count();
+            $total_transTags = TransTag::where('tag_id', $tag->id)
+                ->where('user_id', $user->id)
+                ->count();
+
             $tag->usage_percentage = intval($total_transTags / $total_transactions  * 100);
             $tag->transactions_count = $total_transTags;
             $tag->save();
