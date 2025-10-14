@@ -21,9 +21,9 @@ class TransTagSeeder extends Seeder
         $tags = Tag::select('id')->get()->pluck('id')->toArray();
         $user_id = User::where('name', 'test')->select('id')->first()->id;
         Transaction::chunk(50, function ($transactions) use ($tags, $user_id) {
-            $transtags = [];
             foreach ($transactions as $transaction) {
-                $tag_ids = fake()->randomElements($tags, rand(1, 20));
+                $transtags = [];
+                $tag_ids = fake()->randomElements($tags, rand(1, 20), false);
                 foreach ($tag_ids as $tag_id) {
                     $transtags[] = [
                         'user_id' => $user_id,
