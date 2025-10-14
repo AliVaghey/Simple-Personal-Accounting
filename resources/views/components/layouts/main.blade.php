@@ -8,14 +8,15 @@
 </head>
 <body dir="rtl" class="relative m-0 p-0">
 
-    <img class="absolute -z-50 !w-screen !h-screen" src="{{ asset('background.jpg') }}" alt="background">
+    <img class="fixed top-0 left-0 -z-50 !w-screen !h-screen" src="{{ asset('background.jpg') }}" alt="background">
 
     <div>
         <main>
             {{ $slot }}
         </main>
     </div>
-    <nav class="absolute left-0 bottom-0 w-screen h-20 backdrop-blur bg-white/5 z-50">
+
+    <nav class="fixed left-0 bottom-0 w-screen h-20 backdrop-blur bg-white/5 z-50">
         <div class="flex justify-around h-full w-full text-sm">
 
             <x-navagation.link href="{{ route('dashboard') }}" :name="'داشبورد'">
