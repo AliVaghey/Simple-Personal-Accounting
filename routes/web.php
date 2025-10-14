@@ -1,11 +1,7 @@
 <?php
 
-use App\Livewire\Settings\Appearance;
-use App\Livewire\Settings\Password;
-use App\Livewire\Settings\Profile;
-use App\Livewire\Settings\TwoFactor;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Fortify\Features;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -16,7 +12,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::view('transactions', 'transactions')->name('transactions');
-    Route::view('tags', 'tags')->name('tags');
+    Route::get('tags', [TagController::class, 'index'])->name('tags');
     Route::view('statistics', 'statistics')->name('statistics');
 
 });
