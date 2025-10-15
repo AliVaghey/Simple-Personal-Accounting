@@ -1,7 +1,7 @@
 <div
     x-data
     x-intersect="$wire.loadMore()"
-    class="overflow-y-auto max-h-screen py-9 flex flex-col items-center gap-5 w-11/12 mx-auto "
+    class=" max-h-screen py-9 flex flex-col items-center gap-5 w-11/12 mx-auto "
 
 >
     @foreach($this->transactions as $trans)
