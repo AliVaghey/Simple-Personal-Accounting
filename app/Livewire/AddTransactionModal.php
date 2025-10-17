@@ -55,9 +55,12 @@ class AddTransactionModal extends Component
         $this->closeModal();
     }
 
-    public function closeModal()
+    public function closeModal(): void
     {
         $this->js('addTransModal = false');
+        $this->reset();
+        $this->tags = Tag::all();
+        $this->selectedTags = collect();
     }
 
     private function saveTransaction(bool $is_expense, int $amount, ?string $description)
@@ -71,7 +74,7 @@ class AddTransactionModal extends Component
         ]);
 
         $transTags = [];
-        foreach ($this->selectedTags as $tag) {
+        foreach ($this->selectedTags ?? [] as $tag) {
             $transTags[] = [
                 'user_id' => $user->id,
                 'tag_id' => $tag->id,
