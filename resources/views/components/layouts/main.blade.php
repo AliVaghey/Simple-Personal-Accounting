@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireScripts
 </head>
-<body dir="rtl" class="relative m-0 p-0">
+<body dir="rtl" class="relative m-0 p-0" x-data="{addTransModal: false}">
 
     <img class="fixed top-0 left-0 -z-50 !w-screen !h-screen" src="{{ asset('background.jpg') }}" alt="background">
 
@@ -17,6 +17,8 @@
             {{ $slot }}
         </main>
     </div>
+
+    <livewire:add-transaction-modal />
 
     <nav class="fixed left-0 bottom-0 w-screen h-20 backdrop-blur bg-white/5 z-50">
         <div class="flex justify-around h-full w-full text-sm">
@@ -35,15 +37,18 @@
             </x-navagation.link>
 
 {{--            Livewire add transaction component            --}}
-<div class="flex h-full justify-center items-center">
-            <button class="rounded-full  bg-white text-black w-16 h-16 text-6xl flex justify-center items-center">
+        <div class="flex h-full justify-center items-center">
+            <button @click="addTransModal = true" class="rounded-full  bg-white text-black w-16 h-16 text-6xl flex justify-center items-center">
                 <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M31.5 17L1.5 17" stroke="black" stroke-width="3" stroke-linecap="round"/>
                     <path d="M16.5 32L16.5 2" stroke="black" stroke-width="3" stroke-linecap="round"/>
                 </svg>
-
             </button>
-</div>
+
+
+
+        </div>
+
             <x-navagation.link href="{{ route('tags') }}" :name="'تگ ها'">
                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_34_234)">
