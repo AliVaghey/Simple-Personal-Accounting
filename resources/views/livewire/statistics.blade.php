@@ -20,7 +20,29 @@
 
     <x-carts.dashboard-cart :title="'adsfsd'" :income="$incomes" :expense="$expenses" :$percentage :$tags x-show="show" />
 
-    <div x-show="show" class="flex flex-col gap-2 w-11/12 mx-auto  border  border-white rounded-xl bg-white/25">
+
+    <div x-show="show" class="flex flex-col gap-4 w-11/12 mx-auto border border-white rounded-xl bg-white/25 py-4">
+        @foreach($tags ?? [] as $tag)
+            @php
+                $percent = $percentage[$tag->id] ?? 0;
+            @endphp
+
+            <div class="flex flex-col gap-2 w-11/12 mx-auto">
+                <div class="flex justify-between items-center">
+                    <p class="text-white text-sm md:text-base">{{ $tag->name }}</p>
+                    <p class="text-white text-sm md:text-base">{{ $percent }}%</p>
+                </div>
+
+                <div 
+                    class="h-4 rounded-xl transition-all duration-700"
+                    style="width: {{ $percent }}%; background-color: {{ $tag->color }};">
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+
+    <!-- <div x-show="show" class="flex flex-col gap-2 w-11/12 mx-auto  border  border-white rounded-xl bg-white/25">
         <div class="flex flex-col gap-2 w-11/12 mx-auto py-3">
             <div class="flex justify-between items-center">
                 <p class="text-white">تگ اول</p>
@@ -35,5 +57,5 @@
             </div>
             <div class="w-2/4 rounded-xl h-4 bg-cyan-400"></div>
         </div>
-    </div>
+    </div> -->
 </div>
