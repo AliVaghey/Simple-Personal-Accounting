@@ -28,7 +28,9 @@ class TransTagSeeder extends Seeder
                     $transtags[] = [
                         'user_id' => $user_id,
                         'tag_id' => $tag_id,
-                        'transaction_id' => $transaction->id
+                        'transaction_id' => $transaction->id,
+                        'created_at' => now(),
+                        'updated_at' => now(),
                     ];
                 }
                 TransTag::insert($transtags);
