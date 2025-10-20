@@ -1,5 +1,7 @@
 <?php
 
+use Morilog\Jalali\Jalalian;
+
 function shamsi($date, bool $time = true, $format = null, $lang = 'fa_IR'): string
 {
     $formatter = new IntlDateFormatter(

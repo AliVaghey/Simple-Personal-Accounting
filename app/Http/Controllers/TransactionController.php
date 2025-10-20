@@ -6,7 +6,6 @@ use App\Models\Tag;
 use App\Models\Transaction;
 use App\Models\TransTag;
 use Illuminate\Database\Query\JoinClause;
-use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
