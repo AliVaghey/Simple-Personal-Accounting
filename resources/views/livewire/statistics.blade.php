@@ -13,7 +13,7 @@
                     <input wire:model="end" type="text" id="end" class="w-11/12 h-11 border-white rounded-xl bg-white/25">
                 </div>
                 <div class="flex justify-center items-center">
-                    <button type="button" wire:click="showStatistics" class="w-2/5 h-11 bg-white rounded-xl text-2xl">نمایش</button>
+                    <button type="button" wire:click="showStatistics" class="w-2/5 h-11 bg-white rounded-xl text-2xl cursor-pointer">نمایش</button>
                 </div>
             </form>
         </div></div>
@@ -23,9 +23,11 @@
 
     <div x-show="show" class="flex flex-col gap-4 w-11/12 mx-auto border border-white rounded-xl bg-white/25 py-4">
         @foreach($tags ?? [] as $tag)
-            @php
-                $percent = $percentage[$tag->id] ?? 0;
-            @endphp
+        @php
+        $percent = $percentage[(string) $tag->id] ?? 0;
+        @endphp
+        <!-- <pre class="text-white">{{ $tag->id }} => {{ $percent }} | {{ $tag->color }}</pre> -->
+         
 
             <div class="flex flex-col gap-2 w-11/12 mx-auto">
                 <div class="flex justify-between items-center">
@@ -40,22 +42,4 @@
             </div>
         @endforeach
     </div>
-
-
-    <!-- <div x-show="show" class="flex flex-col gap-2 w-11/12 mx-auto  border  border-white rounded-xl bg-white/25">
-        <div class="flex flex-col gap-2 w-11/12 mx-auto py-3">
-            <div class="flex justify-between items-center">
-                <p class="text-white">تگ اول</p>
-                <p class="text-white">100%</p>
-            </div>
-            <div class="w-full rounded-xl h-4 bg-rose-400"></div>
-        </div>
-        <div class="flex flex-col gap-2 w-11/12 mx-auto py-3">
-            <div class="flex justify-between items-center">
-                <p class="text-white">تگ دوم</p>
-                <p class="text-white">50%</p>
-            </div>
-            <div class="w-2/4 rounded-xl h-4 bg-cyan-400"></div>
-        </div>
-    </div> -->
 </div>
