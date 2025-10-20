@@ -18,16 +18,15 @@
             </form>
         </div></div>
 
-    <x-carts.dashboard-cart :title="'adsfsd'" :income="$incomes" :expense="$expenses" :$percentage :$tags x-show="show" />
+    <x-carts.dashboard-cart :title="$start . ' => ' . $end" :income="$incomes" :expense="$expenses" :$percentage :$tags x-show="show" />
 
 
     <div x-show="show" class="flex flex-col gap-4 w-11/12 mx-auto border border-white rounded-xl bg-white/25 py-4">
         @foreach($tags ?? [] as $tag)
-        @php
-        $percent = $percentage[(string) $tag->id] ?? 0;
-        @endphp
-        <!-- <pre class="text-white">{{ $tag->id }} => {{ $percent }} | {{ $tag->color }}</pre> -->
-         
+            @php
+                $per = json_decode($percentage, true);
+                $percent = $per[$tag->id];
+            @endphp
 
             <div class="flex flex-col gap-2 w-11/12 mx-auto">
                 <div class="flex justify-between items-center">
@@ -35,11 +34,22 @@
                     <p class="text-white text-sm md:text-base">{{ $percent }}%</p>
                 </div>
 
-                <div 
+                <div
                     class="h-4 rounded-xl transition-all duration-700"
                     style="width: {{ $percent }}%; background-color: {{ $tag->color }};">
                 </div>
             </div>
         @endforeach
     </div>
+
+    @foreach($this->transactions as $trans)
+        <x-carts.transaction-card :$trans wire:key="transaction-{{ $trans->id }}"/>
+    @endforeach
+
+    @if ($this->transactions->hasMorePages())
+        <div x-intersect="$wire.loadMore()" class="text-center py-4 text-gray-500">
+            Loading more...
+        </div>
+    @endif
+
 </div>
