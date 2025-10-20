@@ -5,8 +5,8 @@
     $currentPercent = 0;
 
     foreach ($tags ?? [] as $tag) {
-        $color = $tag->color ?? '#ccc';
-        $percent = $percentage[$tag->id] ?? 0;
+        $color = $tag->color;
+        $percent = $percentage[$tag->id];
         $nextPercent = $currentPercent + $percent;
 
         $gradientParts[] = "{$color} {$currentPercent}% {$nextPercent}%";
@@ -38,7 +38,7 @@
                 </div>
             </div>
             @php
-               
+
             @endphp
             <div class="w-32 h-32 rounded-full" style="background: conic-gradient({{ $gradientStyle }});"></div>
         </div>
