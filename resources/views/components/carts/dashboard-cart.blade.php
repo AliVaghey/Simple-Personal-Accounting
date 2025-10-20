@@ -1,4 +1,21 @@
-@php($percentage = json_decode($percentage, true))
+@php
+    $percentage = json_decode($percentage, true);
+
+    $gradientParts = [];
+    $currentPercent = 0;
+
+    foreach ($tags ?? [] as $tag) {
+        $color = $tag->color ?? '#ccc';
+        $percent = $percentage[$tag->id] ?? 0;
+        $nextPercent = $currentPercent + $percent;
+
+        $gradientParts[] = "{$color} {$currentPercent}% {$nextPercent}%";
+        $currentPercent = $nextPercent;
+    }
+
+    $gradientStyle = implode(', ', $gradientParts);
+@endphp
+
  <div {{ $attributes }} class="w-11/12  mx-auto border border-white rounded-lg backdrop-blur-xl">
         <p class="text-white text-center text-2xl py-4">{{ $title }}</p>
         <div class="flex justify-between items-center gap-4 w-11/12 mx-auto">
@@ -20,7 +37,10 @@
                     </div>
                 </div>
             </div>
-            <div class="w-32 h-32 rounded-full bg-rose-300"></div>
+            @php
+               
+            @endphp
+            <div class="w-32 h-32 rounded-full" style="background: conic-gradient({{ $gradientStyle }});"></div>
         </div>
         <div class="flex flex-wrap justify-between items-center gap-4 w-11/12 mx-auto my-4">
             @foreach($tags ?? [] as $tag)
