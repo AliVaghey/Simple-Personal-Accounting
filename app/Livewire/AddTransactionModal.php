@@ -14,7 +14,7 @@ class AddTransactionModal extends Component
     #[Validate('array|nullable')]
     public $selectedTags;
 
-    #[Validate('required|integer')]
+    #[Validate('required')]
     public $amount;
 
     #[Validate('nullable|string')]
@@ -44,14 +44,14 @@ class AddTransactionModal extends Component
     public function saveIncome()
     {
         $this->validate();
-        $this->saveTransaction(false, $this->amount, $this->description);
+        $this->saveTransaction(false, (int)str_replace(',', '', $this->amount), $this->description);
         $this->closeModal();
     }
 
     public function saveExpense()
     {
         $this->validate();
-        $this->saveTransaction(true, $this->amount, $this->description);
+        $this->saveTransaction(true, (int)str_replace(',', '', $this->amount), $this->description);
         $this->closeModal();
     }
 
