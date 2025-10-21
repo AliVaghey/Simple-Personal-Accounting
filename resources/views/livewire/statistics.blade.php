@@ -21,11 +21,18 @@
     <x-carts.dashboard-cart :title="$start . ' => ' . $end" :income="$incomes" :expense="$expenses" :$percentage :$tags x-show="show" />
 
 
+    @php
+        $per = json_decode($percentage, true);
+
+        $sortedTags = collect($tags)->sortByDesc(function ($tag) use ($per) {
+            return $per[$tag->id] ?? 0;
+        });
+    @endphp
+
     <div x-show="show" class="flex flex-col gap-4 w-11/12 mx-auto border border-white rounded-xl bg-white/25 py-4">
-        @foreach($tags ?? [] as $tag)
+        @foreach($sortedTags as $tag)
             @php
-                $per = json_decode($percentage, true);
-                $percent = $per[$tag->id];
+                $percent = $per[$tag->id] ?? 0;
             @endphp
 
             <div class="flex flex-col gap-2 w-11/12 mx-auto">
@@ -42,14 +49,17 @@
         @endforeach
     </div>
 
-    @foreach($this->transactions as $trans)
-        <x-carts.transaction-card :$trans wire:key="transaction-{{ $trans->id }}"/>
-    @endforeach
+    <div class="w-11/12 mx-auto flex flex-col gap-4">
 
-    @if ($this->transactions->hasMorePages())
-        <div x-intersect="$wire.loadMore()" class="text-center py-4 text-gray-500">
-            Loading more...
-        </div>
-    @endif
+        @foreach($this->transactions as $trans)
+            <x-carts.transaction-card :$trans wire:key="transaction-{{ $trans->id }}"/>
+        @endforeach
+
+        @if ($this->transactions->hasMorePages())
+            <div x-intersect="$wire.loadMore()" class="text-center py-4 text-gray-500">
+                Loading more...
+            </div>
+        @endif
+    </div>
 
 </div>
