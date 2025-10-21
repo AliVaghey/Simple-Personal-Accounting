@@ -37,9 +37,18 @@ class TransactionController extends Controller
             })
             ->get();
         $percentage = [];
+
+
         foreach ($tags as $tag) {
-            $count = $total_tags->where('tag_id', $tag->id)->count();
-            $percentage[$tag->id] = intval($count / $total_tags->count() * 100);
+            $total = $total_tags->sum('amount');
+            $sum = TransTag::query()
+                ->join('transactions', function (JoinClause $join) use ($from, $to) {
+                    $join->on('transactions.id', '=', 'trans_tags.transaction_id')
+                        ->whereBetween('transactions.created_at', [$from, $to]);
+                })
+                ->where('tag_id', $tag->id)
+                ->sum('amount');
+            $percentage[$tag->id] = intval($sum / $total * 100, 2);
         }
 
         return [
