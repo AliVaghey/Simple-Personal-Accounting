@@ -22,7 +22,7 @@ return [
         'name' => 'Personal Accounting',
         'short_name' => 'PA',
         'background_color' => '#ffffff',
-        'display' => 'fullscreen',
+        'display' => 'standalone',
         'description' => 'This is just a personal accounting system.',
         'theme_color' => '#ffffff',
         'icons' => [
