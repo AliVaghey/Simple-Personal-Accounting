@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use App\Schedules\CalculateTagInfo;
 
-Artisan::command('calcTag', function () {
-
-});
+Schedule::call(new CalculateTagInfo)->daily();

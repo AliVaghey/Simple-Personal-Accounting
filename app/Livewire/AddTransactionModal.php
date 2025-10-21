@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\TagController;
 use App\Models\Tag;
 use App\Models\Transaction;
 use Livewire\Attributes\Validate;
