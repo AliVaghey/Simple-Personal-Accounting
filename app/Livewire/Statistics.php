@@ -43,7 +43,7 @@ class Statistics extends Component
         $this->start = shamsi_to_gregorian($s[0], $s[1], $s[2]);
         $this->end = shamsi_to_gregorian($e[0], $e[1], $e[2]);
 
-        $stats = TransactionController::showStats($this->start, $this->end);
+        $stats = TransactionController::showStats(auth()->user()->id, $this->start, $this->end);
 
         $this->incomes = $stats['incomes'];
         $this->expenses = $stats['expenses'];
