@@ -21,10 +21,10 @@ return [
     'manifest' => [
         'name' => 'Personal Accounting',
         'short_name' => 'PA',
-        'background_color' => '#6777ef',
+        'background_color' => '#ffffff',
         'display' => 'fullscreen',
         'description' => 'This is just a personal accounting system.',
-        'theme_color' => '#6777ef',
+        'theme_color' => '#ffffff',
         'icons' => [
             [
                 'src' => 'logo.png',
