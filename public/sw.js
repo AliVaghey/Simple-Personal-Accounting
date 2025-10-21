@@ -4,7 +4,12 @@ const CACHE_NAME = "offline-cache-v1";
 const OFFLINE_URL = '/offline.html';
 
 const filesToCache = [
-    OFFLINE_URL
+    OFFLINE_URL,
+    '/build/manifest.json',
+    '/build/assets/app-l0sNRNKZ.js',
+    '/build/assets/app-NUIxYPNT.css',
+    '/background.jpg',
+    '/favicon.svg',
 ];
 
 self.addEventListener("install", (event) => {

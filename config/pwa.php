@@ -19,11 +19,11 @@ return [
     */
 
     'manifest' => [
-        'name' => 'Laravel PWA',
-        'short_name' => 'LPT',
+        'name' => 'Personal Accounting',
+        'short_name' => 'PA',
         'background_color' => '#6777ef',
         'display' => 'fullscreen',
-        'description' => 'A Progressive Web Application setup for Laravel projects.',
+        'description' => 'This is just a personal accounting system.',
         'theme_color' => '#6777ef',
         'icons' => [
             [
@@ -51,5 +51,5 @@ return [
     | Livewire-specific PWA optimizations or features.
     */
 
-    'livewire-app' => false,
+    'livewire-app' => true,
 ];

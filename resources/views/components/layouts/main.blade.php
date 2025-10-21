@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Accounting</title>
 
+    @PwaHead
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireScripts
@@ -79,5 +80,6 @@
 
         </div>
     </nav>
+    @RegisterServiceWorkerScript
 </body>
 </html>
