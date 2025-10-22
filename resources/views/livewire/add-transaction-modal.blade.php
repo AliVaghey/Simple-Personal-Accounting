@@ -23,7 +23,7 @@
                     @error('amount') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div class="flex flex-col gap-2 w-11/12 mx-auto">
-                    <label for="description" class="text-white text-base">توضیحات</label>
+                    <label for="description" wire:model.live="description" class="text-white text-base">توضیحات</label>
                     <textarea class="w-full text-white border border-white rounded-lg"></textarea>
                     @error('description') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
