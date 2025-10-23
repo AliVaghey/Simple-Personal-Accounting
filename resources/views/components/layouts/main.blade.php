@@ -11,6 +11,8 @@
 </head>
 <body dir="rtl" class="relative m-0 p-0" x-data="{addTransModal: false}">
 
+    @stack('modals')
+
     <img class="fixed top-0 left-0 -z-50 !w-screen !h-screen" src="{{ asset('background.jpg') }}" alt="background">
 
     <div>

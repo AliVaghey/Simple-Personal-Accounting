@@ -14,4 +14,8 @@
         </div>
     @endif
 
+    @pushonce('modals')
+        <livewire:transaction-edit-modal lazy />
+    @endpushonce
+
 </div>
