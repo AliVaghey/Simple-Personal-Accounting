@@ -23,7 +23,7 @@ class AddTransactionModal extends Component
 
     public function mount()
     {
-        $this->tags = Tag::all();
+        $this->tags = auth()->user()->tags;
         $this->selectedTags = collect();
     }
 
