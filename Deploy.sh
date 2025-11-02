@@ -1,0 +1,6 @@
+printf "doing the git config\n"
+git config --global --add safe.directory /var/www/html
+printf "\ngit fetch\n"
+git fetch
+printf "\ngit pull\n"
+printf "\NDone.\n"
