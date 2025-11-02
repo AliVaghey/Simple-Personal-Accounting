@@ -1,6 +1,20 @@
-printf "doing the git config\n"
+#!/bin/bash
+set -x
+
+
+# Define colors
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${CYAN}🔧 Configuring Git safe directory...${NC}"
 git config --global --add safe.directory /var/www/html
-printf "\ngit fetch\n"
+
+echo -e "${YELLOW}📡 Fetching latest changes from remote...${NC}"
 git fetch
-printf "\ngit pull\n"
-printf "\nDone.\n"
+
+echo -e "${YELLOW}📥 Pulling updates into the current branch...${NC}"
+git pull
+
+echo -e "${GREEN}✅ All done! Your repository is up to date.${NC}"
