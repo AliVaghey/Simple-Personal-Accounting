@@ -1,6 +1,8 @@
 <x-layouts.main>
 
     <div class="py-9 flex flex-col items-center justify-center gap-4">
+        <div>{{ shamsi(now()) }}</div>
+
         <x-carts.dashboard-cart :title="'امروز'"
                                 :income="$currentDayStats['incomes']"
                                 :expense="$currentDayStats['expenses']"
