@@ -58,9 +58,10 @@ class AddTransactionModal extends Component
 
     public function closeModal(): void
     {
+        $user = auth()->user();
         $this->js('addTransModal = false');
         $this->reset();
-        $this->tags = Tag::all();
+        $this->tags = $user->tags;
         $this->selectedTags = collect();
     }
 
