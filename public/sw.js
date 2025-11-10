@@ -1,12 +1,12 @@
 "use strict";
 
-const CACHE_NAME = "offline-cache-v2";
+const CACHE_NAME = "offline-cache-v3";
 const OFFLINE_URL = '/offline.html';
 
 const filesToCache = [
     OFFLINE_URL,
     '/build/manifest.json',
-    '/build/assets/app-CORmc_0K.css',
+    '/build/assets/app-BUDbrUO3.css',
     '/build/assets/app-l0sNRNKZ.js',
     '/background.jpg',
     '/favicon.svg',
