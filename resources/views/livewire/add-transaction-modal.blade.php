@@ -63,8 +63,8 @@
                     @endforeach
                 </div>
                 <div class="space-x-4">
-                    <button wire:click="saveExpense" wire:loading.attr="disabled" wire:loading.class="animate-pules" type="button" class="w-36 h-11 text-xl font-bold bg-red-700/10 text-red-500 border border-red-700 rounded-xl">ذخیره خرج</button>
-                    <button wire:click="saveIncome" wire:loading.attr="disabled" wire:loading.class="animate-pules" type="button" class="w-36 h-11 text-xl font-bold bg-green-700/10 text-green-500 rounded-xl border border-green-700 cursor-pointer">ذخیره درآمد</button>
+                    <button wire:click="saveExpense" wire:loading.attr="disabled" wire:loading.class="bg-white/20 border-white text-white" type="button" class="w-36 h-11 text-xl font-bold bg-red-700/10 text-red-500 border border-red-700 rounded-xl">ذخیره خرج</button>
+                    <button wire:click="saveIncome" wire:loading.attr="disabled" wire:loading.class="bg-white/20 border-white text-white" type="button" class="w-36 h-11 text-xl font-bold bg-green-700/10 text-green-500 rounded-xl border border-green-700 cursor-pointer">ذخیره درآمد</button>
                 </div>
             </form>
 
