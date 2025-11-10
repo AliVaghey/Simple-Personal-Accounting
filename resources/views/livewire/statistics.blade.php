@@ -31,15 +31,15 @@
 
     <div x-show="show" class="flex flex-col gap-4 w-11/12 mx-auto border border-white rounded-xl bg-white/25 py-4">
         @foreach($sortedTags as $tag)
-            @php
-                $percent = $per[$tag->id] ?? 0;
-            @endphp
+            @php($percent = $per[$tag->id] ?? 0)
 
             <div class="flex flex-col gap-2 w-11/12 mx-auto">
                 <div class="flex justify-between items-center">
                     <p class="text-white text-sm md:text-base">{{ $tag->name }}</p>
                     <p class="text-white text-sm md:text-base">{{ $percent }}%</p>
                 </div>
+
+                <div class="text-center text-2xl text-white w-full">{{ number_format($summations[$tag->id]) }}</div>
 
                 <div
                     class="h-4 rounded-xl transition-all duration-700"

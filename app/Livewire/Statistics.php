@@ -17,6 +17,7 @@ class Statistics extends Component
     public $expenses;
     public $tags;
     public $percentage;
+    public $summations;
 
     public $perPage = 10;
 
@@ -49,6 +50,7 @@ class Statistics extends Component
         $this->expenses = $stats['expenses'];
         $this->tags = $stats['tags'];
         $this->percentage = json_encode($stats['percentage']);
+        $this->summations = $stats['summations'];
 
         $this->js('show = true');
     }

@@ -41,6 +41,7 @@ class TransactionController extends Controller
             })
             ->get();
         $percentage = [];
+        $summations = [];
 
 
         foreach ($tags as $tag) {
@@ -53,6 +54,7 @@ class TransactionController extends Controller
                 })
                 ->where('tag_id', $tag->id)
                 ->sum('amount');
+            $summations[$tag->id] = $sum;
             $percentage[$tag->id] = intval($sum / $total * 100, 2);
         }
 
@@ -61,6 +63,7 @@ class TransactionController extends Controller
             'expenses' => $expenses,
             'tags' => $tags,
             'percentage' => $percentage,
+            'summations' => $summations
         ];
     }
 }
