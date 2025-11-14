@@ -1,7 +1,7 @@
 <x-layouts.main>
 
     <div class="py-9 flex flex-col items-center justify-center gap-4">
-        <div>{{ shamsi(now()) }}</div>
+        <div class="text-2xl text-white">{{ shamsi(now(), false) }}</div>
 
         <x-carts.dashboard-cart :title="'امروز'"
                                 :income="$currentDayStats['incomes']"
