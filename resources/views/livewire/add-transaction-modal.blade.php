@@ -19,7 +19,7 @@
                 @csrf
                 <div class="flex flex-col gap-2 w-11/12 mx-auto">
                     <label for="amount" class="text-white text-base">مبلغ</label>
-                    <input id="amount" type="text" wire:model.live="amount" @input="$el.value = new Intl.NumberFormat().format($el.value.replaceAll(',', ''))" class="h-12 text-white border border-white rounded-lg">
+                    <input id="amount" inputmode="numeric" type="text" wire:model.live="amount" @input="$el.value = new Intl.NumberFormat().format($el.value.replaceAll(',', ''))" class="h-12 text-white border border-white rounded-lg">
                     @error('amount') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div class="flex flex-col gap-2 w-11/12 mx-auto">
